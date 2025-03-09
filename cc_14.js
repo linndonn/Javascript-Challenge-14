@@ -3,7 +3,7 @@
 function createTicket (name, issue, priority level){
     const ticket = document.createElement ('div');
     //Set attributes (such as class and id) using setAttribute
-    ticket.setAttribute('class', 'ticketID');
+    ticket.setAttribute('class', 'ticketId');
 
 //A heading for the customer’s name.
     const nameHeader = document.createElement('h3'); 
@@ -34,7 +34,7 @@ ticketContainer.appendChild(ticket);
 resolveButton.addEventListener('click', (event) => {  
     event.stopPropagation(); 
     ticketContainer.removeChild(ticket); 
-    console.log(`${nameHeader.textContent}'s ticket resolved`); 
+    console.log(`${nameHeader.textContent}'s ticket is complete`); 
 });
 
 ticketContainer.addEventListener('click', () => { 
@@ -42,35 +42,35 @@ ticketContainer.addEventListener('click', () => {
 
 //  // Task 5:  Additional Challenge – Inline Editing of Support Tickets //
  
-const editButton = document.createElement('button'); 
-editButton.textContent = 'Edit'; 
-ticket.appendChild(editButton); 
+const edit = document.createElement('button'); 
+edit.textContent = 'Edit'; 
+ticket.appendChild(edit); 
 
-editButton.addEventListener('click', () => {  
+edit.addEventListener('click', () => {  
     
-    const nameInput = document.createElement('input'); 
-    nameInput.value = nameHeader.textContent; 
+    const input = document.createElement('input'); 
+    input.value = header.textContent; 
 
-    const issueInput = document.createElement('input'); 
-    issueInput.value = paragraph.textContent; 
+    const issue = document.createElement('input'); 
+    issue.value = paragraph.textContent; 
 
-    const priorityInput = document.createElement('input'); 
-    priorityInput.value = priorityLevel.textContent; 
+    const priority = document.createElement('input'); 
+    priority.value = priorityLevel.textContent; 
 
     const saveButton = document.createElement('button'); 
     saveButton.textContent = 'Save'; 
 
-    ticket.replaceChild(nameInput, nameHeader); 
-    ticket.replaceChild(issueInput, paragraph); 
-    ticket.replaceChild(priorityInput, priorityLevel); 
-    ticket.replaceChild(saveButton, editButton); 
+    ticket.replaceChild(input, header); 
+    ticket.replaceChild(issue, paragraph); 
+    ticket.replaceChild(priority, priorityLevel); 
+    ticket.replaceChild(saveButton, edit); 
 
     saveButton.addEventListener('click', () => { 
-        nameHeader.textContent = nameInput.value; 
-        paragraph.textContent = issueInput.value; 
-        priorityLevel.textContent = priorityInput.value; 
+        header.textContent = input.value; 
+        paragraph.textContent = issue.value; 
+        priorityLevel.textContent = input.value; 
 
-    if (priorityInput.value === 'High') {  
+    if (priority.value === 'High') {  
         ticket.classList.add('high-priority'); 
     } else {
         ticket.classList.remove('high-priority'); 
@@ -78,8 +78,8 @@ editButton.addEventListener('click', () => {
 
     highHighPriorityTickets (); 
 
-    ticket.replaceChild(nameHeader, nameInput); 
-    ticket.replaceChild(paragraph, issueInput); 
+    ticket.replaceChild(header, input); 
+    ticket.replaceChild(paragraph, issue); 
     ticket.replaceChild(priorityLevel, priorityInput); 
     ticket.replaceChild(editButton, saveButton); 
     
