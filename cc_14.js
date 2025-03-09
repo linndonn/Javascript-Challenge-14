@@ -30,6 +30,17 @@ if (priority === 'High') {
 const ticketContainer = document.getElementById('ticketContainer'); 
 ticketContainer.appendChild(ticket); 
 }
+// Task 4 - Support Ticket Resolution with Event Bubbling
+
+//Attach a click event listener to the "Resolve" button that removes its parent ticket using removeChild.
+deleteBtn = document.createElement("button"); 
+    deleteBtn.textContent = "Remove Employee"; 
+    
+    deleteBtn.addEventListener("click", (event) => { 
+        employeeContainer.removeChild(card)
+// Use stopPropagation() in the "Resolve" button’s event handler to prevent bubblin
+event.stopPropagation(); 
+    });
 
 //Test Data - Task 2
 createTicket('Stooge Joseph', 'Credentials Does Not Exist in Portal', 'High'); 
