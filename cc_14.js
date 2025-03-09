@@ -1,6 +1,6 @@
 //Task 2 - Support Tickets Dynamic Addition
 //Each ticket should be a <div> element displaying the customer’s name, issue description, priority level, and a Resolve button.
-function createTicket (name, issue, priority level){
+function createTicket (name, issue, priorityLevel){
     const ticket = document.createElement ('div');
     //Set attributes (such as class and id) using setAttribute
     ticket.setAttribute('class', 'ticketId');
