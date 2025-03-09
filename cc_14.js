@@ -25,22 +25,67 @@ ticket.appendChild(priorityLevel);
 ticket.appendChild(resolveButton); 
 
 if (priority === 'High') {  
-    ticket.classList.add('high-priority'); 
+    ticket.classList.add('highpriority'); 
 }
 const ticketContainer = document.getElementById('ticketContainer'); 
 ticketContainer.appendChild(ticket); 
 }
 // Task 4 - Support Ticket Resolution with Event Bubbling
+resolveButton.addEventListener('click', (event) => {  
+    event.stopPropagation(); 
+    ticketContainer.removeChild(ticket); 
+    console.log(`${nameHeader.textContent}'s ticket resolved`); 
+});
 
-//Attach a click event listener to the "Resolve" button that removes its parent ticket using removeChild.
-deleteBtn = document.createElement("button"); 
-    deleteBtn.textContent = "Remove Employee"; 
+ticketContainer.addEventListener('click', () => { 
+});
+
+//  // Task 5:  Additional Challenge – Inline Editing of Support Tickets //
+ 
+const editButton = document.createElement('button'); 
+editButton.textContent = 'Edit'; 
+ticket.appendChild(editButton); 
+
+editButton.addEventListener('click', () => {  
     
-    deleteBtn.addEventListener("click", (event) => { 
-        employeeContainer.removeChild(card)
-// Use stopPropagation() in the "Resolve" button’s event handler to prevent bubblin
-event.stopPropagation(); 
+    const nameInput = document.createElement('input'); 
+    nameInput.value = nameHeader.textContent; 
+
+    const issueInput = document.createElement('input'); 
+    issueInput.value = paragraph.textContent; 
+
+    const priorityInput = document.createElement('input'); 
+    priorityInput.value = priorityLevel.textContent; 
+
+    const saveButton = document.createElement('button'); 
+    saveButton.textContent = 'Save'; 
+
+    ticket.replaceChild(nameInput, nameHeader); 
+    ticket.replaceChild(issueInput, paragraph); 
+    ticket.replaceChild(priorityInput, priorityLevel); 
+    ticket.replaceChild(saveButton, editButton); 
+
+    saveButton.addEventListener('click', () => { 
+        nameHeader.textContent = nameInput.value; 
+        paragraph.textContent = issueInput.value; 
+        priorityLevel.textContent = priorityInput.value; 
+
+    if (priorityInput.value === 'High') {  
+        ticket.classList.add('high-priority'); 
+    } else {
+        ticket.classList.remove('high-priority'); 
+    }
+
+    highHighPriorityTickets (); 
+
+    ticket.replaceChild(nameHeader, nameInput); 
+    ticket.replaceChild(paragraph, issueInput); 
+    ticket.replaceChild(priorityLevel, priorityInput); 
+    ticket.replaceChild(editButton, saveButton); 
+    
+    console.log('Ticket details updated.'); 
     });
+});
 
 //Test Data - Task 2
 createTicket('Stooge Joseph', 'Credentials Does Not Exist in Portal', 'High'); 
@@ -48,12 +93,24 @@ createTicket('Stooge Joseph', 'Credentials Does Not Exist in Portal', 'High');
  createTicket('Shaquille Harrigan', 'System Functioning, just running slow.', 'Low');
 
  //Task 3 - Highlighting High Priority Tickets
+//Use document.querySelectorAll to select all tickets with a "High" priority class
+ function highHighPriorityTickets () { 
+    const highPriorityTickets = document.querySelectorAll('.highpriority'); 
+    const ticketsArray = Array.from(highPriorityTickets); 
 
- //Use document.querySelectorAll to select all tickets with a "High" priority class.
- const nodelistEmployee = document.querySelectorAll(".employeeCard");
- //Convert the NodeList into an array using Array.from() or the spread operator.
- const employeeCardArray = Array.from(nodelistEmployee);
-//Use an array method (e.g., .forEach()) to update the appearance of high-priority tickets (e.g., change background color or add a border).
- employeeCardArray.forEach(card => { 
-    card.style.backgroundColor = "Red";
-});
+    ticketsArray.forEach(ticket => {  
+            });
+        }
+    const nonHighPriorityTickets = document.querySelectorAll('.support-ticket:not(.highpriority)');  
+    const nonHighPriorityArray = Array.from(nonHighPriorityTickets); 
+
+    nonHighPriorityArray.forEach(ticket => {
+        ticket.style.backgroundColor = '#f2f542'; 
+        nonHighPriorityArray.forEach(ticket => {  
+            ticket.style.backgroundColor = ''; 
+            ticket.style.border = '';
+    
+    
+    }  
+  });
+    
