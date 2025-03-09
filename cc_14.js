@@ -24,6 +24,9 @@ ticket.appendChild(paragraph);
 ticket.appendChild(priorityLevel); 
 ticket.appendChild(resolveButton); 
 
+if (priority === 'High') {  
+    ticket.classList.add('high-priority'); 
+}
 const ticketContainer = document.getElementById('ticketContainer'); 
 ticketContainer.appendChild(ticket); 
 }
@@ -32,3 +35,14 @@ ticketContainer.appendChild(ticket);
 createTicket('Stooge Joseph', 'Credentials Does Not Exist in Portal', 'High'); 
  createTicket('Jemella Bascus', 'Cannot Find Printer', 'Medium'); 
  createTicket('Shaquille Harrigan', 'System Functioning, just running slow.', 'Low');
+
+ //Task 3 - Highlighting High Priority Tickets
+
+ //Use document.querySelectorAll to select all tickets with a "High" priority class.
+ const nodelistEmployee = document.querySelectorAll(".employeeCard");
+ //Convert the NodeList into an array using Array.from() or the spread operator.
+ const employeeCardArray = Array.from(nodelistEmployee);
+//Use an array method (e.g., .forEach()) to update the appearance of high-priority tickets (e.g., change background color or add a border).
+ employeeCardArray.forEach(card => { 
+    card.style.backgroundColor = "Red";
+});
