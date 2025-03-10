@@ -17,12 +17,14 @@ function createTicket (name, issue, priority){
 //A "Resolve" button to remove the ticket.
      const resolveButton = document.createElement('button'); 
      resolveButton.textContent = 'Resolve';
+     resolveButton.setAttribute('class', 'resolve-button');
 
 //Append the support ticket to "ticketContainer" using appendChild.
 ticket.appendChild(nameHeader); 
 ticket.appendChild(paragraph); 
 ticket.appendChild(priorityLevel); 
 ticket.appendChild(resolveButton); 
+ticketContainer.appendChild(ticket);
 
 if (priority === 'High') {  
     ticket.classList.add('high-priority'); 
@@ -61,10 +63,10 @@ editButton.addEventListener('click', () => {
     const saveButton = document.createElement('button'); 
     saveButton.textContent = 'Save'; 
 
-    ticket.replaceChild(inputN, nameHeader); 
-    ticket.replaceChild(issueI, paragraph); 
-    ticket.replaceChild(priorityI, priorityLevel); 
-    ticket.replaceChild(saveButton, editButton); 
+    ticket.appendChild(inputN, nameHeader); 
+    ticket.appendChild(issueI, paragraph); 
+    ticket.appendChild(priorityI, priorityLevel); 
+    ticket.appendChild(saveButton, editButton); 
 
     saveButton.addEventListener('click', () => { 
         nameHeader.textContent = inputN.value; 
@@ -79,15 +81,15 @@ editButton.addEventListener('click', () => {
 
     highHighPriorityTickets (); 
 
-    ticket.replaceChild(header, inputN); 
-    ticket.replaceChild(paragraph, inputI); 
-    ticket.replaceChild(priorityLevel, priorityI); 
-    ticket.replaceChild(editButton, saveButton); 
+    ticket.appendChild(header, inputN); 
+    ticket.appendChild(paragraph, inputI); 
+    ticket.appendChild(priorityLevel, priorityI); 
+    ticket.appendChild(editButton, saveButton); 
     
     console.log('Ticket updated.'); 
     });
 });
-
+}
 
 //Test Data - Task 2
 createTicket('Stooge Joseph', 'Credentials Does Not Exist in Portal', 'High'); 
