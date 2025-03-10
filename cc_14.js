@@ -9,7 +9,7 @@ function createTicket (name, issue, priority){
     const nameHeader = document.createElement('h3'); 
      nameHeader.textContent = name; 
  //A paragraph for the issue description
-     const paragraph = document.createElement('para'); 
+     const paragraph = document.createElement('p'); 
      paragraph.textContent = issue; 
  //A label indicating priority level.
      const priorityLevel = document.createElement('level'); 
@@ -114,5 +114,5 @@ createTicket('Stooge Joseph', 'Credentials Does Not Exist in Portal', 'High');
     
     }) 
   });
-}
+
 highlightHighPriorityTickets();

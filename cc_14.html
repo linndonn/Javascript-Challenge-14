@@ -5,56 +5,42 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Customer Support Ticket System</title>
      <style>
-
-        header {font-family: 'Times New Roman', Times, serif;
-         margin: 18px;
-         padding: 14px;
-         text-align: center;}
-
         body {
             font-family:'Times New Roman', Times, serif;
             margin : 0;
-            text-align: center;
-            padding: 0;
-             background-color: rgb(65, 226, 78);
+                    }
+                    header, footer {
+                         text-align: center;
+                         padding: 18px;
+             background-color: rgb(194, 135, 250);
          }
-
          footer {
-            font-family:'Times New Roman', Times, serif;
-            text-align: center;
+            position: relative;
             bottom: 0;
-            left: 18px;
+            left: 0;
             width: 100%;
-       
+        }
+         main { padding: 12px;
         }
          #ticketContainer {
              margin-top: 18px;
              margin-bottom: 18px;
+         }      
+         .support-ticket {
             display: inline-block;
-            text-align: center;
+            text-align: left;
             margin: 8px;
             padding: 8px;
             border-radius: 5px;
             width: 20%;
-           
+            overflow: clip;
          }
 
-         .support-ticket {
-           margin-bottom: 12px;  
-           padding: 12px;
-           border: 2px solid #d32424;
-           border-radius: 5px;
-        }
-
-     .support-ticket label {
-           display: block;  
-           margin-bottom: 12px; 
-        }
               
      </style>
  </head>
  <body>
-    <header><h3>Customer Support Ticket System</h3></header>
+    <header><h3>Customer Support Ticket System
      <main>
          <div id="ticketContainer"></div>
      </main>
