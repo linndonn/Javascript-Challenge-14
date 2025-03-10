@@ -3,7 +3,7 @@
 function createTicket (name, issue, priority){
     const ticket = document.createElement ('div');
     //Set attributes (such as class and id) using setAttribute
-    ticket.setAttribute('class', 'ticketId');
+    ticket.setAttribute('class', 'ticketId'); 
 
 //A heading for the customer’s name.
     const nameHeader = document.createElement('h3'); 
@@ -38,15 +38,16 @@ resolveButton.addEventListener('click', (event) => {
 });
 
 ticketContainer.addEventListener('click', () => { 
+    console.log(`Ticket has been clicked!`);
 });
 
 //  // Task 5:  Additional Challenge – Inline Editing of Support Tickets //
  
-const edit = document.createElement('button'); 
-edit.textContent = 'Edit'; 
-ticket.appendChild(edit); 
+const editButton = document.createElement('button'); 
+editButton.textContent = 'Edit'; 
+ticket.appendChild(editButton); 
 
-edit.addEventListener('click', () => {  
+editButton.addEventListener('click', () => {  
     
     const inputN = document.createElement('input'); 
     inputN.value = nameHeader.textContent; 
@@ -60,13 +61,13 @@ edit.addEventListener('click', () => {
     const saveButton = document.createElement('button'); 
     saveButton.textContent = 'Save'; 
 
-    ticket.replaceChild(inputI, nameHeader); 
+    ticket.replaceChild(inputN, nameHeader); 
     ticket.replaceChild(issueI, paragraph); 
     ticket.replaceChild(priorityI, priorityLevel); 
-    ticket.replaceChild(saveButton, edit); 
+    ticket.replaceChild(saveButton, editButton); 
 
     saveButton.addEventListener('click', () => { 
-        nameHeader.textContent = inputn.value; 
+        nameHeader.textContent = inputN.value; 
         paragraph.textContent = inputI.value; 
         priorityLevel.textContent = priorityI.value; 
 
@@ -100,19 +101,20 @@ createTicket('Stooge Joseph', 'Credentials Does Not Exist in Portal', 'High');
     const ticketsArray = Array.from(highPriorityTickets); 
 
     ticketsArray.forEach(ticket => {  
+         ticket.style.backgroundColor = '#ff0000'; 
+        ticket.style.border = '2px solid black'
             });
         
     const nonHighPriorityTickets = document.querySelectorAll('.support-ticket:not(.highpriority)');  
     const nonHighPriorityArray = Array.from(nonHighPriorityTickets); 
 
     nonHighPriorityArray.forEach(ticket => {
-        ticket.style.backgroundColor = '#f2f542'; 
-        nonHighPriorityArray.forEach(ticket => {  
-            ticket.style.backgroundColor = ''; 
-            ticket.style.border = '';
+        ticket.style.backgroundColor = ''; 
+                   ticket.style.border = '';
     
     
-    }) 
-  });
+    });
+  }
+
 
 highlightHighPriorityTickets();
