@@ -25,7 +25,7 @@ ticket.appendChild(priorityLevel);
 ticket.appendChild(resolveButton); 
 
 if (priority === 'High') {  
-    ticket.classList.add('highpriority'); 
+    ticket.classList.add('high-priority'); 
 }
 const ticketContainer = document.getElementById('ticketContainer'); 
 ticketContainer.appendChild(ticket); 
@@ -48,29 +48,29 @@ ticket.appendChild(edit);
 
 edit.addEventListener('click', () => {  
     
-    const input = document.createElement('input'); 
-    input.value = header.textContent; 
+    const inputN = document.createElement('input'); 
+    inputN.value = nameHeader.textContent; 
 
-    const issue = document.createElement('input'); 
-    issue.value = paragraph.textContent; 
+    const inputI = document.createElement('input'); 
+    inputI.value = paragraph.textContent; 
 
-    const priority = document.createElement('input'); 
-    priority.value = priorityLevel.textContent; 
+    const priorityI = document.createElement('input'); 
+    priorityI.value = priorityLevel.textContent; 
 
     const saveButton = document.createElement('button'); 
     saveButton.textContent = 'Save'; 
 
-    ticket.replaceChild(input, header); 
-    ticket.replaceChild(issue, paragraph); 
-    ticket.replaceChild(priority, priorityLevel); 
+    ticket.replaceChild(inputI, nameHeader); 
+    ticket.replaceChild(issueI, paragraph); 
+    ticket.replaceChild(priorityI, priorityLevel); 
     ticket.replaceChild(saveButton, edit); 
 
     saveButton.addEventListener('click', () => { 
-        header.textContent = input.value; 
-        paragraph.textContent = issue.value; 
-        priorityLevel.textContent = input.value; 
+        nameHeader.textContent = inputn.value; 
+        paragraph.textContent = inputI.value; 
+        priorityLevel.textContent = priorityI.value; 
 
-    if (priority.value === 'High') {  
+    if (priorityI.value === 'High') {  
         ticket.classList.add('high-priority'); 
     } else {
         ticket.classList.remove('high-priority'); 
@@ -78,14 +78,15 @@ edit.addEventListener('click', () => {
 
     highHighPriorityTickets (); 
 
-    ticket.replaceChild(header, input); 
-    ticket.replaceChild(paragraph, issue); 
-    ticket.replaceChild(priorityLevel, priorityInput); 
+    ticket.replaceChild(header, inputN); 
+    ticket.replaceChild(paragraph, inputI); 
+    ticket.replaceChild(priorityLevel, priorityI); 
     ticket.replaceChild(editButton, saveButton); 
     
-    console.log('Ticket details updated.'); 
+    console.log('Ticket updated.'); 
     });
 });
+
 
 //Test Data - Task 2
 createTicket('Stooge Joseph', 'Credentials Does Not Exist in Portal', 'High'); 
@@ -100,7 +101,7 @@ createTicket('Stooge Joseph', 'Credentials Does Not Exist in Portal', 'High');
 
     ticketsArray.forEach(ticket => {  
             });
-        }
+        
     const nonHighPriorityTickets = document.querySelectorAll('.support-ticket:not(.highpriority)');  
     const nonHighPriorityArray = Array.from(nonHighPriorityTickets); 
 
@@ -111,6 +112,7 @@ createTicket('Stooge Joseph', 'Credentials Does Not Exist in Portal', 'High');
             ticket.style.border = '';
     
     
-    }  
+    }) 
   });
-    
+}
+highlightHighPriorityTickets();
